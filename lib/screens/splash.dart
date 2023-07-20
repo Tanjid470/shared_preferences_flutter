@@ -1,11 +1,10 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:shared_perferces/functions/shared_prefs.dart';
 import 'package:shared_perferces/screens/Login.dart';
-import 'package:shared_perferces/screens/dashboard.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
+
+import 'Dashboard/dashboard.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -39,7 +38,10 @@ class SplashState extends State<Splash> {
   }
 
   void whereToGO() async {
+    // var sharedPer = await SharedPreferences.getInstance();
+    // var isLoggedIn=sharedPer.getBool(KEYLOGIN);
 
+    // SharedPrefs().isLoggedIn;
 
     Timer(const Duration(seconds: 1), () {
       if (SharedPrefs().isLoggedIn) {
@@ -55,7 +57,18 @@ class SplashState extends State<Splash> {
               builder: (context) => const LoginPage(),
             ));
       }
-   
+      // if(isLoggedIn!= null){
+      //   if(isLoggedIn){
+      //     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Dashboard(),));
+      //   }
+      //   else{
+      //      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginPage(),));
+      //   }
+      // }
+      // else{
+      //   Get.to(const LoginPage());
+      // }
+      //Get.to(const LoginPage());
     });
   }
 }

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_perferces/controller/auth_controller.dart';
 import 'package:shared_perferces/functions/shared_prefs.dart';
-import 'package:shared_perferces/screens/Login.dart';
-import 'package:shared_perferces/screens/dashboard.dart';
+
+
 import 'package:shared_perferces/screens/splash.dart';
 
 Future<void> main() async {

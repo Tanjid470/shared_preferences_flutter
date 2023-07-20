@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_perferces/controller/auth_controller.dart';
 import 'package:shared_perferces/functions/shared_prefs.dart';
-import 'package:shared_perferces/screens/Login.dart';
-import 'package:shared_perferces/screens/splash.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
+import '../newLogin/newlog.dart';
+import 'component/logout.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -21,21 +21,11 @@ class _DashboardState extends State<Dashboard> {
       appBar: AppBar(
         title: const Text('Dash Board'),
         actions: [
-          IconButton(
-              onPressed: () async {
-                // var sharedPer = await SharedPreferences.getInstance();
-                // sharedPer.setBool(SplashState.KEYLOGIN, false);
-                SharedPrefs().clear;
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Splash(),
-                    ));
-              },
-              icon: const Icon(Icons.logout_sharp))
+          Logout(context),
         ],
       ),
-      body: ListView.builder(
+      body:
+       ListView.builder(
         itemCount: 1,
         itemBuilder: (context, index) => Card(
           child: Column(
@@ -43,7 +33,7 @@ class _DashboardState extends State<Dashboard> {
               const Text("Successfully"),
               Text(SharedPrefs().name),
               Text(SharedPrefs().userId),
-              
+
               Text(SharedPrefs().job),
               Text(SharedPrefs().createdAt),
               Text(SharedPrefs().isLoggedIn.toString()),
@@ -54,6 +44,9 @@ class _DashboardState extends State<Dashboard> {
           ),
         ),
       ),
+    floatingActionButton: FloatingActionButton(onPressed: (){
+      Get.to(const newlog());
+    },child: Text('next'),),
     );
   }
 }

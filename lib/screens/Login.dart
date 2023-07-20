@@ -23,24 +23,27 @@ class _LoginPageState extends State<LoginPage> {
             const Icon(
               Icons.person,
               color: Colors.blue,
-              size: 40,
+              size: 50,
+            ),
+            const SizedBox(
+              height: 10,
             ),
             TextField(
               controller: authController.enrollTextController,
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.start,
               decoration: const InputDecoration(
                 label: Text('Enroll'),
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  borderRadius: BorderRadius.all(Radius.circular(5)),gapPadding: 4.5
                 ),
               ),
             ),
-           const SizedBox(
+            const SizedBox(
               height: 10,
             ),
             TextField(
               controller: authController.otpTextController,
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.start,
               decoration: const InputDecoration(
                 label: Text('OTP'),
                 border: OutlineInputBorder(
@@ -48,20 +51,19 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-           const SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Obx(() => TextButton(
-              
-                onPressed: authController.isButton.value
-                    ? null
-                    : ()async {
-                        authController.login(
-                            authController.enrollTextController.text.toString(),
-                            authController.otpTextController.text.toString());
-                      },
-             
-                      child:const Text(
+                  onPressed: authController.isButton.value
+                      ? null
+                      : () async {
+                          authController.login(
+                              authController.enrollTextController.text
+                                  .toString(),
+                              authController.otpTextController.text.toString());
+                        },
+                  child: const Text(
                     'Login',
                     style: TextStyle(
                         color: Colors.black,
